@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — derived from the Westside Burns Night crest + Burns Supper heritage */
+  --color-navy: #16243f;        /* deep midnight navy (logo + hero) */
+  --color-navy-deep: #0e182b;   /* darker navy for footer / overlays */
+  --color-gold: #c29a4b;        /* whisky / brass accent */
+  --color-gold-soft: #d9bd84;   /* lighter gold for hover */
+  --color-cream: #f7f3ea;       /* parchment background */
+  --color-cream-dim: #efe8d8;   /* slightly deeper cream */
+  --color-ink: #1c2230;         /* body text on light */
+  --color-thistle: #7c6a93;     /* muted thistle purple (sparingly) */
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-navy-deep);
+  }
+}
+
+@layer utilities {
+  @keyframes slowZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+  }
+  .animate-slow-zoom {
+    animation: slowZoom 14s ease-out forwards;
+  }
+  /* thin gold rule used under section eyebrows */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[0.72rem] font-sans font-semibold uppercase tracking-[0.28em];
+  }
+}
