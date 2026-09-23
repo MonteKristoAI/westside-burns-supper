@@ -13,7 +13,7 @@ function LinkedinIcon({ size = 16 }: { size?: number }) {
 
 const TEAM = [
   { name: "Maxine Aitkenhead", role: "President", photo: "/team/maxine.jpg", linkedin: "https://www.linkedin.com/in/maxineaitkenhead/" },
-  { name: "Nina Spencer", role: "Vice President", photo: "/team/nina.jpg", linkedin: "https://www.linkedin.com/in/nina-spencer-42673944/" },
+  { name: "Nina Spencer-Varnado", role: "Vice President", photo: "/team/nina.jpg", linkedin: "https://www.linkedin.com/in/nina-spencer-42673944/" },
   { name: "Lynda Hull", role: "Secretary", photo: "/team/lynda.jpg", linkedin: "https://www.linkedin.com/in/lynda-hull-cne-2240111a/" },
   { name: "Paul Goonan", role: "Treasurer", photo: "/team/paul.jpg", linkedin: "https://www.linkedin.com/in/goonan88/" },
 ];
