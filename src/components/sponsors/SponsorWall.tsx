@@ -4,20 +4,43 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 type Sponsor = { name: string; logo: string; url?: string; w: number; h: number };
+type Tier = { label: string; size: "lead" | "table"; sponsors: Sponsor[] };
 
-/* Tiers as printed in the 2026 event programme: one Bard Sponsor, three Table Sponsors. */
-const BARD_SPONSOR: Sponsor = {
+const MEGARME: Sponsor = {
   name: "Megarme",
   logo: "/sponsors/megarme.png",
   url: "https://www.megarme-group.com/",
   w: 600,
   h: 229,
 };
+const GUARDIAN: Sponsor = {
+  name: "Guardian Decommissioning",
+  logo: "/sponsors/gd.png",
+  url: "https://www.guardiandecom.com",
+  w: 700,
+  h: 620,
+};
+const SOURCE_IEX: Sponsor = {
+  name: "Source IEx",
+  logo: "/sponsors/source.png",
+  url: "https://www.sourceiex.com/index.html",
+  w: 187,
+  h: 83,
+};
+const SHORES: Sponsor = {
+  name: "Shores MDS Inc",
+  logo: "/sponsors/shores.png",
+  url: "https://www.shoresmds.com/",
+  w: 255,
+  h: 49,
+};
 
-const TABLE_SPONSORS: Sponsor[] = [
-  { name: "Source IEx", logo: "/sponsors/source.png", url: "https://www.sourceiex.com/index.html", w: 187, h: 83 },
-  { name: "NES Fircroft", logo: "/sponsors/nes.png", url: "https://www.nesfircroft.com/", w: 367, h: 165 },
-  { name: "Guardian Decommissioning", logo: "/sponsors/gd.png", url: "https://www.guardiandecom.com", w: 600, h: 540 },
+/* The 2027 supporters, as the board gave them. Guardian sits in two tiers by their own
+   instruction. Add a new logo by dropping it into /public/sponsors and listing it here. */
+const TIERS: Tier[] = [
+  { label: "Bard Sponsor", size: "lead", sponsors: [MEGARME, GUARDIAN] },
+  { label: "Duke Sponsor", size: "table", sponsors: [GUARDIAN, SOURCE_IEX] },
+  { label: "2026 Auction Winner", size: "table", sponsors: [SHORES] },
 ];
 
 const reveal = {
@@ -63,6 +86,33 @@ function LogoCard({ sponsor, size }: { sponsor: Sponsor; size: "lead" | "table" 
   );
 }
 
+function TierBlock({ tier }: { tier: Tier }) {
+  const single = tier.sponsors.length === 1;
+  const width = single ? "max-w-sm" : tier.size === "lead" ? "max-w-4xl" : "max-w-3xl";
+  const cols = single ? "grid-cols-1" : "grid-cols-2";
+
+  return (
+    <motion.div
+      variants={grid}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      className="mt-16 text-center"
+    >
+      <motion.p variants={reveal} className="eyebrow justify-center text-gold">
+        <span className="h-px w-8 bg-gold/60" />
+        {tier.label}
+        <span className="h-px w-8 bg-gold/60" />
+      </motion.p>
+      <div className={`mx-auto mt-6 grid gap-5 sm:gap-6 ${width} ${cols}`}>
+        {tier.sponsors.map((s) => (
+          <LogoCard key={`${tier.label}-${s.name}`} sponsor={s} size={tier.size} />
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 export default function SponsorWall() {
   return (
     <section className="bg-cream py-24 lg:py-32">
@@ -80,7 +130,7 @@ export default function SponsorWall() {
             <span className="h-px w-8 bg-gold/60" />
           </p>
           <h2 className="mt-5 text-balance font-display text-4xl font-medium leading-tight text-navy sm:text-5xl">
-            Our 2026 sponsors
+            Our 2027 sponsors
           </h2>
           <p className="mt-5 text-pretty font-sans text-lg leading-relaxed text-ink/75">
             As a 501(c)(3) non-profit, the Association relies on the generosity of its
@@ -90,49 +140,9 @@ export default function SponsorWall() {
           </p>
         </motion.div>
 
-        {/* Bard Sponsor */}
-        <motion.div
-          variants={grid}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          className="mx-auto mt-16 max-w-xl text-center"
-        >
-          <motion.p
-            variants={reveal}
-            className="eyebrow text-gold"
-          >
-            <span className="h-px w-8 bg-gold/60" />
-            Bard Sponsor
-            <span className="h-px w-8 bg-gold/60" />
-          </motion.p>
-          <div className="mt-6">
-            <LogoCard sponsor={BARD_SPONSOR} size="lead" />
-          </div>
-        </motion.div>
-
-        {/* Table Sponsors */}
-        <motion.div
-          variants={grid}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-16 text-center"
-        >
-          <motion.p
-            variants={reveal}
-            className="eyebrow text-gold"
-          >
-            <span className="h-px w-8 bg-gold/60" />
-            Table Sponsors
-            <span className="h-px w-8 bg-gold/60" />
-          </motion.p>
-          <div className="mt-6 grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-3">
-            {TABLE_SPONSORS.map((s) => (
-              <LogoCard key={s.name} sponsor={s} size="table" />
-            ))}
-          </div>
-        </motion.div>
+        {TIERS.map((tier) => (
+          <TierBlock key={tier.label} tier={tier} />
+        ))}
 
         <motion.p
           variants={reveal}
@@ -141,7 +151,7 @@ export default function SponsorWall() {
           viewport={{ once: true, amount: 0.5 }}
           className="mt-14 text-center font-display text-xl font-medium tracking-wide text-gold"
         >
-          Now collecting donations for 2027
+          Sponsorship for 2027 is still open
         </motion.p>
       </div>
     </section>

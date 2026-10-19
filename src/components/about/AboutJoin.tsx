@@ -27,18 +27,18 @@ export default function AboutJoin() {
             <span className="h-px w-8 bg-gold/50" />
           </p>
           <h2 className="mx-auto mt-5 max-w-2xl text-balance font-display text-3xl font-medium leading-tight text-cream sm:text-4xl">
-            Join the Celebration Committee
+            Lend a hand with the night
           </h2>
           <p className="mx-auto mt-5 max-w-xl font-sans text-base leading-relaxed text-cream/75 sm:text-lg">
-            Our committee promotes, organizes and runs the supper — and decides where the
-            surplus goes. If you&rsquo;d like to be part of it, we&rsquo;d love to hear from you.
+            The board and its volunteers run the supper and decide where the surplus
+            goes. If you&rsquo;d like to be part of it, we&rsquo;d love to hear from you.
           </p>
 
           <a
             href={`mailto:${EMAIL}`}
             className="mt-8 inline-flex rounded-full bg-gold px-9 py-3.5 font-sans text-sm font-semibold text-navy-deep transition-all duration-300 hover:bg-gold-soft"
           >
-            Email the Committee
+            Email the Association
           </a>
 
           <div className="mt-12 border-t border-cream/10 pt-9">

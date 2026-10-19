@@ -63,7 +63,7 @@ export default function TheEvening() {
             The order of a proper Burns Supper
           </h2>
           <p className="mt-5 text-pretty font-sans text-lg leading-relaxed text-ink/75">
-            The evening follows the form it has held for twenty-five years — equal parts
+            The evening follows the form it has held for twenty-six years — equal parts
             ceremony, feast and good company, with special guest speakers joining us from
             Scotland in recent years. Here is how the night unfolds.
           </p>

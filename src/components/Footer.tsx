@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Mail, BedDouble } from "lucide-react";
+import { ROOM_BLOCK_URL } from "@/lib/event";
 
 function LinkedinIcon({ size = 18 }: { size?: number }) {
   return (
@@ -17,8 +18,6 @@ function LinkedinIcon({ size = 18 }: { size?: number }) {
 }
 
 const TICKETS_URL = "/tickets";
-const ROOM_BLOCK_URL =
-  "https://bookings.omnihotels.com/event/houston/westside-burns-night-2026-room-block";
 const LINKEDIN_URL = "https://www.linkedin.com/company/westsideburnsnight/about/";
 
 const EXPLORE = [
@@ -63,9 +62,9 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3">
               <Image
-                src="/images/logo-cream.png"
+                src="/images/logo-badge.png"
                 alt="Westside Burns Night Association crest"
-                width={48}
+                width={44}
                 height={44}
                 className="h-11 w-auto"
               />
@@ -159,7 +158,7 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
-            <p className="mt-6 max-w-xs font-sans text-xs leading-relaxed text-cream/45">
+            <p className="mt-6 max-w-xs font-sans text-xs leading-relaxed text-cream/60">
               A registered 501(c)(3) non-profit. Surplus funds are donated to local, state
               and national charities.
             </p>
@@ -168,10 +167,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-cream/10 pt-7 sm:flex-row">
-          <p className="font-sans text-xs text-cream/45">
-            © 2026 Westside Burns Night Association. All rights reserved.
+          <p className="font-sans text-xs text-cream/60">
+            © {new Date().getFullYear()} Westside Burns Night Association. All rights reserved.
           </p>
-          <p className="font-sans text-xs text-cream/45">Slàinte! 🥃</p>
+          <p className="font-sans text-xs text-cream/60">Slàinte! 🥃</p>
         </div>
       </div>
     </footer>

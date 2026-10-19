@@ -5,9 +5,7 @@ import TicketsHero from "@/components/tickets/TicketsHero";
 import TicketPrices from "@/components/tickets/TicketPrices";
 import SponsorPackages from "@/components/SponsorPackages";
 import MinorPackages from "@/components/tickets/MinorPackages";
-
-const ROOM_BLOCK_URL =
-  "https://bookings.omnihotels.com/event/houston/westside-burns-night-2026-room-block";
+import { ROOM_BLOCK_URL, ROOM_BLOCK_DEADLINE } from "@/lib/event";
 
 export const metadata: Metadata = {
   title: "Tickets & Packages",
@@ -74,6 +72,7 @@ export default function TicketsPage() {
           >
             Book Your Room at the Omni
           </a>
+          <p className="mt-4 font-sans text-sm text-ink/60">{ROOM_BLOCK_DEADLINE}</p>
         </div>
       </section>
 

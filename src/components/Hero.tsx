@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { CalendarDays, MapPin } from "lucide-react";
+import { ROOM_BLOCK_URL } from "@/lib/event";
 
 const TICKETS_URL = "/tickets";
 
@@ -18,7 +19,7 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden py-28">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -102,6 +103,14 @@ export default function Hero() {
           >
             Reserve Your Seat
           </Link>
+          <a
+            href={ROOM_BLOCK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-cream/35 px-9 py-3.5 font-sans text-sm font-semibold tracking-wide text-cream transition-all duration-300 hover:border-gold hover:text-gold"
+          >
+            Book Your Room
+          </a>
           <a
             href="#evening"
             className="rounded-full border border-cream/35 px-9 py-3.5 font-sans text-sm font-semibold tracking-wide text-cream transition-all duration-300 hover:border-gold hover:text-gold"

@@ -34,7 +34,7 @@ export default function AboutStory() {
                 Our Story
               </p>
               <h2 className="mt-5 text-balance font-display text-4xl font-medium leading-tight text-navy sm:text-5xl">
-                Twenty-five years of fellowship
+                Twenty-six years of fellowship
               </h2>
               <div className="mt-6 space-y-5 font-sans text-lg leading-relaxed text-ink/75">
                 <p>

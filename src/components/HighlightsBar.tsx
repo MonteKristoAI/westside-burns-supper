@@ -1,7 +1,7 @@
 const HIGHLIGHTS = [
   { stat: "$200K+", label: "Raised for charity since 2001" },
   { stat: "350", label: "Members & guests each year" },
-  { stat: "25th", label: "Anniversary celebration" },
+  { stat: "26th", label: "Anniversary celebration" },
   { stat: "Live", label: "Whisky Kiss, all the way from Scotland" },
 ];
 

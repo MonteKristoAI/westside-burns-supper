@@ -41,11 +41,11 @@ export default function Team() {
             <span className="h-px w-8 bg-gold/60" />
           </p>
           <h2 className="mt-5 text-balance font-display text-4xl font-medium leading-tight text-navy sm:text-5xl">
-            The Celebration Committee
+            The Board
           </h2>
           <p className="mt-5 text-pretty font-sans text-lg leading-relaxed text-ink/75">
-            A volunteer committee that promotes, organizes and runs the supper each
-            year — and manages every dollar of charitable giving.
+            The volunteer board that promotes, organizes and runs the supper each
+            year, and manages every dollar of charitable giving.
           </p>
         </motion.div>
 

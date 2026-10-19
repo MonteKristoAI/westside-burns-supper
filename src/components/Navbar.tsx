@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { ROOM_BLOCK_URL } from "@/lib/event";
 
 const NAV_LINKS = [
   { label: "The Evening", href: "/#evening" },
@@ -48,9 +49,9 @@ export default function Navbar() {
           aria-label="Westside Burns Night Association — home"
         >
           <Image
-            src="/images/logo-cream.png"
+            src="/images/logo-badge.png"
             alt="Westside Burns Night Association crest"
-            width={52}
+            width={48}
             height={48}
             priority
             className="h-11 w-auto"
@@ -66,20 +67,28 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-9 lg:flex">
+        <div className="hidden items-center gap-7 xl:flex">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="group relative font-sans text-sm font-medium tracking-wide text-cream/85 transition-colors hover:text-cream"
+              className="group relative whitespace-nowrap font-sans text-sm font-medium tracking-wide text-cream/85 transition-colors hover:text-cream"
             >
               {l.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
+          <a
+            href={ROOM_BLOCK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whitespace-nowrap rounded-full border border-cream/40 px-5 py-2.5 font-sans text-sm font-semibold text-cream transition-all duration-300 hover:border-gold hover:text-gold"
+          >
+            Book Your Room
+          </a>
           <Link
             href={TICKETS_URL}
-            className="rounded-full bg-gold px-6 py-2.5 font-sans text-sm font-semibold text-navy-deep transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_8px_24px_-8px_rgba(194,154,75,0.7)]"
+            className="whitespace-nowrap rounded-full bg-gold px-6 py-2.5 font-sans text-sm font-semibold text-navy-deep transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_8px_24px_-8px_rgba(194,154,75,0.7)]"
           >
             Get Tickets
           </Link>
@@ -88,8 +97,10 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(true)}
-          className="text-cream lg:hidden"
+          className="text-cream xl:hidden"
           aria-label="Open menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <Menu size={26} />
         </button>
@@ -97,7 +108,9 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-50 bg-navy-deep transition-opacity duration-300 lg:hidden ${
+        id="mobile-menu"
+        inert={!open}
+        className={`fixed inset-0 z-50 bg-navy-deep transition-opacity duration-300 xl:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -131,6 +144,15 @@ export default function Navbar() {
           >
             Get Tickets
           </Link>
+          <a
+            href={ROOM_BLOCK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="rounded-full border border-cream/40 px-10 py-3.5 font-sans text-base font-semibold text-cream"
+          >
+            Book Your Room
+          </a>
         </div>
       </div>
     </header>

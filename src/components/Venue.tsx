@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { CalendarDays, MapPin, Shirt, BedDouble } from "lucide-react";
+import { ROOM_BLOCK_URL, ROOM_BLOCK_DEADLINE } from "@/lib/event";
 
-const ROOM_BLOCK_URL =
-  "https://bookings.omnihotels.com/event/houston/westside-burns-night-2026-room-block";
 const MAP_SRC =
   "https://www.google.com/maps?q=Omni+Houston+Hotel+4+Riverway+Dr+Houston+TX+77056&output=embed";
 
@@ -107,6 +106,9 @@ export default function Venue() {
               >
                 Book Your Room
               </a>
+              <p className="mt-3 font-sans text-sm text-cream/60">
+                {ROOM_BLOCK_DEADLINE}
+              </p>
             </div>
           </motion.div>
 
