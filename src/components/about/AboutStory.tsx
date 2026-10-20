@@ -67,8 +67,8 @@ export default function AboutStory() {
             >
               <div className="relative overflow-hidden rounded-2xl shadow-[0_24px_60px_-30px_rgba(14,24,43,0.55)] ring-1 ring-navy/10">
                 <Image
-                  src="/gallery/g4.jpg"
-                  alt="Guests in kilts and Highland dress gathered at the Westside Burns Supper"
+                  src="/gallery/2026-3.jpg"
+                  alt="A couple walking through an arch of raised hands during the ceilidh"
                   width={1200}
                   height={800}
                   className="h-full w-full object-cover"

@@ -5,13 +5,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 
+/* The 2026 supper. First one is the feature tile and spans two columns and two rows. */
 const PHOTOS = [
-  { src: "/gallery/g1.jpg", alt: "Members and guests gathered with champagne at the Westside Burns Supper" },
-  { src: "/gallery/g2.jpg", alt: "Guests raising a toast in formal dress and kilts" },
-  { src: "/gallery/g3.jpg", alt: "A group of guests in evening gowns and tartan at the supper" },
-  { src: "/gallery/g4.jpg", alt: "Friends in kilts and black-tie sharing a laugh" },
-  { src: "/gallery/g5.jpg", alt: "Members gathered with champagne at the reception" },
-  { src: "/gallery/g6.jpg", alt: "Guests in Highland dress enjoying the evening" },
+  { src: "/gallery/2026-1.jpg", alt: "Ten guests in kilts and evening gowns lined up arm in arm with a leg kicked out" },
+  { src: "/gallery/2026-2.jpg", alt: "Guests in kilts and black tie filling the ballroom floor at the Omni" },
+  { src: "/gallery/2026-3.jpg", alt: "A couple walking through an arch of raised hands during the ceilidh" },
+  { src: "/gallery/2026-4.jpg", alt: "Dancers laughing as they pass under the raised arch mid-ceilidh" },
+  { src: "/gallery/2026-5.jpg", alt: "A dancer in a red gown mid-turn on a crowded floor" },
 ];
 
 const reveal = {
@@ -78,17 +78,18 @@ export default function Gallery() {
             </p>
           </div>
           <span className="shrink-0 font-sans text-sm uppercase tracking-[0.22em] text-gold-soft">
-            Burns Night 2024
+            Burns Night 2026
           </span>
         </motion.div>
 
-        {/* Photo grid — all six, uniform */}
+        {/* Feature tile plus four. Five photos fill both the 2-column and the
+            4-column grid with no hole at the end of the last row. */}
         <motion.div
           variants={grid}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.12 }}
-          className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-5"
+          className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5"
         >
           {PHOTOS.map((photo, i) => (
             <motion.button
@@ -96,13 +97,17 @@ export default function Gallery() {
               variants={reveal}
               onClick={() => setIndex(i)}
               aria-label={`Open photo ${i + 1} of ${PHOTOS.length}`}
-              className="group relative aspect-[3/2] overflow-hidden rounded-xl ring-1 ring-cream/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className={`group relative overflow-hidden rounded-xl ring-1 ring-cream/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                i === 0
+                  ? "col-span-2 aspect-[3/2] lg:row-span-2 lg:aspect-auto"
+                  : "aspect-[3/2]"
+              }`}
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 1024px) 50vw, 33vw"
+                sizes={i === 0 ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
                 className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-navy-deep/15 transition-colors duration-500 group-hover:bg-navy-deep/35" />

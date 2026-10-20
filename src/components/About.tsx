@@ -33,8 +33,8 @@ export default function About() {
           >
             <div className="relative overflow-hidden rounded-2xl shadow-[0_24px_60px_-30px_rgba(14,24,43,0.55)] ring-1 ring-navy/10">
               <Image
-                src="/gallery/g1.jpg"
-                alt="Members and guests in kilts and black-tie gathered with champagne at the Westside Burns Supper"
+                src="/gallery/2026-2.jpg"
+                alt="Guests in kilts and black tie filling the ballroom floor at the Westside Burns Supper"
                 width={1200}
                 height={800}
                 className="h-full w-full object-cover"
