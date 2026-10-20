@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="flex items-center gap-3.5"
           aria-label="Westside Burns Night Association — home"
         >
           <Image
@@ -56,11 +56,13 @@ export default function Navbar() {
             priority
             className="h-11 w-auto"
           />
-          <span className="hidden flex-col leading-none sm:flex">
+          {/* The two lines are a lockup: same measure, and the tracked line carries a
+              negative right margin so its trailing letter-space does not widen it. */}
+          <span className="hidden flex-col gap-[3px] leading-none sm:flex">
             <span className="font-display text-[1.05rem] font-semibold tracking-wide text-cream">
               Westside Burns Night
             </span>
-            <span className="font-sans text-[0.62rem] uppercase tracking-[0.32em] text-gold-soft">
+            <span className="-mr-[0.25em] font-sans text-[0.62rem] uppercase tracking-[0.25em] text-gold-soft">
               Association · Houston
             </span>
           </span>

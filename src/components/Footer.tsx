@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3.5">
               <Image
                 src="/images/logo-badge.png"
                 alt="Westside Burns Night Association crest"
